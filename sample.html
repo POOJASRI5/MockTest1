@@ -1,0 +1,85 @@
+<!--2. Apply the below logic combining HTML, CSS and Javascript.
+    a. HTML should contain Text boxes for Name, Age, dropdown for Designation and a button named "Submit". On clicking the button call the Javascript function which 
+    adds the values which the User entered and display it inside the <li> tag. 
+    b. Apply style for the page.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+        body {
+            font-family: Arial;
+            background-color: #c3cae7;
+            margin-top: 50px;
+        }
+
+        .container {
+            background-color: white;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input, select {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: green;
+        }
+
+        ul {
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+    <form>
+    <strong>Employee Form:</strong><br><br>
+    Name:<input id="username" type="text" placeholder="Username" required><br><br>
+    Age:<input id="age" type="number" placeholder="Age" required> <br><br>
+    Designation: <select id="desgn">
+        <option value="">Select Designation</option>
+        <option>Manager</option>
+        <option>Sotware Developer</option>
+        <option>Tester</option>
+        <option>Project Lead</option>
+    </select><br><br>
+    <button onclick="demo()">Submit</button>
+    </form>
+    <ul id="ul"></ul>
+    </div>
+    <script>
+        function demo(){
+         let name= document.getElementById("username").value
+         let age= document.getElementById("age").value
+         let designation=document.getElementById("desgn").value
+         let li= document.createElement("li");
+         li.textContent= "Name: " + name + 
+                         ", Age: " + age + 
+                         ", Designation: " + designation;
+        document.getElementById("ul").appendChild(li);  
+
+        document.getElementById("username").value = "";
+        document.getElementById("age").value = "";
+        document.getElementById("designation").value = "";
+        }
+
+    </script>
+</body>
+</html>
